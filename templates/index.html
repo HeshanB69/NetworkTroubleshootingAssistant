@@ -2,18 +2,67 @@
 <html>
 <head>
     <title>Network Troubleshooting Assistant</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            padding:30px;
+        }
+
+        .container{
+            max-width:700px;
+            margin:auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        .card{
+            padding:15px;
+            margin:10px 0;
+            background:#eef;
+            border-radius:8px;
+        }
+    </style>
+
 </head>
 <body>
 
+<div class="container">
+
     <h1>Network Troubleshooting Assistant</h1>
 
-    <p><strong>IP Address:</strong> {{ data.ip }}</p>
+    <div class="card">
+        <strong>IP Address:</strong>
+        {{ data.ip }}
+    </div>
 
-    <p><strong>Internet Status:</strong> {{ data.internet }}</p>
+    <div class="card">
+        <strong>Internet Status:</strong>
+        {{ data.internet }}
+    </div>
 
-    <p><strong>DNS Status:</strong> {{ data.dns }}</p>
+    <div class="card">
+        <strong>DNS Status:</strong>
+        {{ data.dns }}
+    </div>
 
-    <p><strong>Gateway:</strong> {{ data.gateway }}</p>
+    <div class="card">
+        <strong>Gateway:</strong>
+        {{ data.gateway }}
+    </div>
+    <div class="card">
+    <strong>Gateway Status:</strong>
+    {{ data.gateway_status }}
+</div>
+
+</div>
 
 </body>
 </html>

@@ -59,7 +59,26 @@ def get_gateway():
         return "Gateway Not Found"
 
     except Exception as e:
+        return f"Error: {e}" 
+
+def check_gateway():
+    try:
+        gateway = get_gateway()
+
+        result = subprocess.run(
+            ["ping", gateway, "-n", "1"],
+            capture_output=True,
+            text=True
+        )
+
+        if result.returncode == 0:
+            return "Reachable"
+
+        return "Unreachable"
+
+    except Exception as e:
         return f"Error: {e}"    
+
 
 
 

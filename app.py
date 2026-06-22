@@ -9,7 +9,8 @@ def home():
         "ip": get_ip_address(),
         "internet": check_internet(),
         "dns": check_dns(),
-        "gateway": get_gateway()
+        "gateway": get_gateway(),
+        "gateway_status": check_gateway()
     }
 
     return render_template("index.html", data=data)
