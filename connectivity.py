@@ -27,7 +27,17 @@ def get_ip_address():
 
     except Exception as e:
         return f"Error: {e}"
+    
+def check_dns():
+    try:
+        ip = socket.gethostbyname("google.com")
+        return f"DNS Working ({ip})"
+
+    except Exception as e:
+        return f"DNS Failed: {e}"
+
 
 
 print("IP Address:", get_ip_address())
 print("Internet Status:", check_internet())
+print("DNS Status:", check_dns())
