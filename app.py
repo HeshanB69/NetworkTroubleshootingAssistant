@@ -1,3 +1,4 @@
+from wifi_info import get_wifi_info
 from speed_test import run_speed_test
 from public_ip import get_public_ip
 from network_scanner import scan_network, get_network
@@ -16,7 +17,8 @@ def home():
         "gateway": get_gateway(),
         "gateway_status": check_gateway(),
         "recommendation": get_recommendation(),
-        "devices": scan_network(get_network())
+        "devices": scan_network(get_network()),
+        "wifi": get_wifi_info(),
       
     }
 
