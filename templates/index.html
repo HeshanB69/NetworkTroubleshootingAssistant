@@ -1,69 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Network Troubleshooting Assistant</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
-<body>
 
-<div class="container">
+<body class="bg-light">
 
-    <h1>Network Troubleshooting Assistant</h1>
+<div class="container py-5">
 
-    <div class="card">
-        <strong>IP Address:</strong>
-        {{ data.ip }}
+    <h1 class="text-center mb-5">
+        🌐 Network Troubleshooting Assistant
+    </h1>
+
+    <div class="row">
+
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>🌍 Internet Status</h5>
+                    <p>{{ data.internet }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>🌐 DNS Status</h5>
+                    <p>{{ data.dns }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>🖥 IP Address</h5>
+                    <p>{{ data.ip }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>📡 Gateway</h5>
+                    <p>{{ data.gateway }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>✅ Gateway Status</h5>
+                    <p>{{ data.gateway_status }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>💡 Recommendation</h5>
+                    <p>{{ data.recommendation }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5>🌍 Public IP Address</h5>
+            <p>{{ data.public_ip }}</p>
+        </div>
     </div>
-
-    <div class="card">
-        <strong>Internet Status:</strong>
-        {{ data.internet }}
-    </div>
-
-    <div class="card">
-        <strong>DNS Status:</strong>
-        {{ data.dns }}
-    </div>
-
-    <div class="card">
-        <strong>Gateway:</strong>
-        {{ data.gateway }}
-    </div>
-    <div class="card">
-    <strong>Gateway Status:</strong>
-    {{ data.gateway_status }}
 </div>
-<div class="card">
-    <strong>Recommendation:</strong><br><br>
-    {{ data.recommendation }}
-</div>
-<h2>Connected Devices</h2>
 
-<table border="1" cellpadding="8">
+    </div>
 
-<tr>
-    <th>Hostname</th>
-    <th>IP Address</th>
-    <th>MAC Address</th>
-</tr>
+    <hr class="my-5">
 
-{% for device in data.devices %}
+    <h2 class="mb-4">📱 Connected Devices</h2>
 
-<tr>
-    <td>{{ device.hostname }}</td>
-    <td>{{ device.ip }}</td>
-    <td>{{ device.mac }}</td>
-</tr>
+    <div class="row">
 
-{% endfor %}
+        {% for device in data.devices %}
 
-</table>
+        <div class="col-md-6 mb-3">
+
+            <div class="card border-primary shadow-sm">
+
+                <div class="card-body">
+
+                    <h5>{{ device.hostname }}</h5>
+
+                    <p><strong>IP:</strong> {{ device.ip }}</p>
+
+                    <p><strong>MAC:</strong> {{ device.mac }}</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
 
 </div>
 
 </body>
+
 </html>

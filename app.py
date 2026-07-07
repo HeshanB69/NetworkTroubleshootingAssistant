@@ -1,3 +1,4 @@
+from public_ip import get_public_ip
 from network_scanner import scan_network, get_network
 from flask import Flask, render_template
 from connectivity import *
@@ -8,6 +9,7 @@ app = Flask(__name__)
 def home():
     data = {
         "ip": get_ip_address(),
+        "public_ip": get_public_ip(),
         "internet": check_internet(),
         "dns": check_dns(),
         "gateway": get_gateway(),
