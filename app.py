@@ -1,10 +1,12 @@
+from port_scanner import scan_ports
 from wifi_info import get_wifi_info
 from speed_test import run_speed_test
 from public_ip import get_public_ip
 from network_scanner import scan_network, get_network
+from flask import request
 from flask import Flask, render_template
 from connectivity import *
-from network_scanner import scan_network
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -32,6 +34,27 @@ def speedtest():
     return render_template(
         "speedtest.html",
         result=result
+    )
+@app.route("/portscanner", methods=["GET", "POST"])
+def portscanner():
+
+    results = None
+
+    if request.method == "POST":
+
+        ip = request.form["ip"]
+
+        results = scan_ports(ip)
+
+        return render_template(
+            "portscanner.html",
+            results=results,
+            ip=ip
+        )
+
+    return render_template(
+        "portscanner.html",
+        results=None
     )
 
 if __name__ == "__main__":

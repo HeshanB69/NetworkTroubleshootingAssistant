@@ -1,28 +1,32 @@
 
         body{
-            font-family: Arial, sans-serif;
-            background:#f4f4f4;
-            padding:30px;
-        }
+    background:#f5f7fb;
+    font-family:Arial,sans-serif;
+}
 
-        .container{
-            max-width:700px;
-            margin:auto;
-            background:white;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 0 10px rgba(0,0,0,0.1);
-        }
+.card{
+    border:none;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
 
-        h1{
-            text-align:center;
-        }
+.card:hover{
+    transform:translateY(-6px);
+}
 
-        .card{
-            padding:15px;
-            margin:10px 0;
-            background:#eef;
-            border-radius:8px;
-        }
- 
-    
+.card-body{
+    padding:25px;
+}
+
+h5{
+    font-weight:600;
+}
+
+.btn{
+    border-radius:12px;
+}
+
+hr{
+    margin:40px 0;
+}
