@@ -27,7 +27,14 @@ def scan_network(network):
     devices = []
 
     for sent, received in answered:
+
+        try:
+            hostname = socket.gethostbyaddr(received.psrc)[0]
+        except:
+            hostname = "Unknown"
+
         devices.append({
+            "hostname": hostname,
             "ip": received.psrc,
             "mac": received.hwsrc
         })

@@ -68,17 +68,23 @@
 <h2>Connected Devices</h2>
 
 <table border="1" cellpadding="8">
-    <tr>
-        <th>IP Address</th>
-        <th>MAC Address</th>
-    </tr>
 
-    {% for device in data.devices %}
-    <tr>
-        <td>{{ device.ip }}</td>
-        <td>{{ device.mac }}</td>
-    </tr>
-    {% endfor %}
+<tr>
+    <th>Hostname</th>
+    <th>IP Address</th>
+    <th>MAC Address</th>
+</tr>
+
+{% for device in data.devices %}
+
+<tr>
+    <td>{{ device.hostname }}</td>
+    <td>{{ device.ip }}</td>
+    <td>{{ device.mac }}</td>
+</tr>
+
+{% endfor %}
+
 </table>
 
 </div>
