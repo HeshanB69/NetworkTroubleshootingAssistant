@@ -59,7 +59,9 @@ def get_gateway():
         return "Gateway Not Found"
 
     except Exception as e:
-        return f"Error: {e}" 
+        return f"Error: {e}"
+    
+
 
 def check_gateway():
     try:
@@ -79,7 +81,26 @@ def check_gateway():
     except Exception as e:
         return f"Error: {e}"    
 
+def get_recommendation():
+    try:
+        internet = check_internet()
+        dns = check_dns()
+        gateway = check_gateway()
 
+        if "Disconnected" in internet:
+            return "❌ No internet connection. Check your router or ISP connection."
+
+        elif "Failed" in dns:
+            return "⚠️ DNS issue detected. Try using Google's DNS (8.8.8.8)."
+
+        elif "Unreachable" in gateway:
+            return "⚠️ Cannot reach the gateway. Check your Wi-Fi or Ethernet connection."
+
+        else:
+            return "✅ No network issues detected."
+
+    except Exception as e:
+        return f"Error: {e}"
 
 
 
