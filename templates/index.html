@@ -45,8 +45,17 @@
         <div class="col-md-6 mb-3">
             <div class="card shadow-sm">
                 <div class="card-body">
-                    <h5>🖥 IP Address</h5>
+                    <h5>🖥 Local IP Address</h5>
                     <p>{{ data.ip }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>🌍 Public IP Address</h5>
+                    <p>{{ data.public_ip }}</p>
                 </div>
             </div>
         </div>
@@ -69,7 +78,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 mb-3">
+        <div class="col-12 mb-3">
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h5>💡 Recommendation</h5>
@@ -77,22 +86,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 mb-3">
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <h5>🌍 Public IP Address</h5>
-            <p>{{ data.public_ip }}</p>
-        </div>
-    </div>
-</div>
 
     </div>
 
-    <a href="/speedtest" class="btn btn-success">
-    ⚡ Run Speed Test
-</a>
+    <div class="text-center mt-4 mb-5">
+        <a href="/speedtest" class="btn btn-success btn-lg">
+            ⚡ Run Internet Speed Test
+        </a>
+    </div>
 
-    <hr class="my-5">
+    <hr>
 
     <h2 class="mb-4">📱 Connected Devices</h2>
 
@@ -108,9 +111,11 @@
 
                     <h5>{{ device.hostname }}</h5>
 
-                    <p><strong>IP:</strong> {{ device.ip }}</p>
+                    <p><strong>Manufacturer:</strong> {{ device.manufacturer }}</p>
 
-                    <p><strong>MAC:</strong> {{ device.mac }}</p>
+                    <p><strong>IP Address:</strong> {{ device.ip }}</p>
+
+                    <p><strong>MAC Address:</strong> {{ device.mac }}</p>
 
                 </div>
 

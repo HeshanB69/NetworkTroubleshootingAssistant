@@ -1,7 +1,7 @@
 import socket
 import ipaddress
 from scapy.all import ARP, Ether, srp
-
+from manufacturer import get_manufacturer
 def get_network():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -34,9 +34,12 @@ def scan_network(network):
             hostname = "Unknown"
 
         devices.append({
-            "hostname": hostname,
-            "ip": received.psrc,
-            "mac": received.hwsrc
+            devices.append({
+    "hostname": hostname,
+    "manufacturer": get_manufacturer(received.hwsrc),
+    "ip": received.psrc,
+    "mac": received.hwsrc
+})
         })
 
     return devices
