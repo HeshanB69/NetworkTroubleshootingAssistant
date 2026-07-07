@@ -1,3 +1,4 @@
+from speed_test import run_speed_test
 from public_ip import get_public_ip
 from network_scanner import scan_network, get_network
 from flask import Flask, render_template
@@ -20,6 +21,16 @@ def home():
     }
 
     return render_template("index.html", data=data)
+
+@app.route("/speedtest")
+def speedtest():
+
+    result = run_speed_test()
+
+    return render_template(
+        "speedtest.html",
+        result=result
+    )
 
 if __name__ == "__main__":
     app.run(debug=True)
