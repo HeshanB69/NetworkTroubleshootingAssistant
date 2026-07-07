@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from connectivity import *
-
+from network_scanner import scan_network
 app = Flask(__name__)
 
 @app.route("/")
@@ -11,7 +11,9 @@ def home():
         "dns": check_dns(),
         "gateway": get_gateway(),
         "gateway_status": check_gateway(),
-        "recommendation": get_recommendation()
+        "recommendation": get_recommendation(),
+        "devices": scan_network("192.168.1.0/24")
+      
     }
 
     return render_template("index.html", data=data)
